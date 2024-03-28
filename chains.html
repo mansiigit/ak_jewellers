@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jewelry Designs</title>
+    <link rel="stylesheet" href="chains.css">
+</head>
+<body>
+    <div class="jewelry-design-container-chains">
+        <div class="jewelry-design-chains">
+            <img src="https://tse4.mm.bing.net/th?id=OIP.eGv8gi72Fm64_ybfcHQm-QHaHa&pid=Api&P=0&h=180" alt="chain-Design">
+            <h2>BUNDI DESIGN</h2>
+            <label for="chain-quantity-studs1">Quantity:</label>
+            <input type="number" id="chain-quantity-studs1" name="chain-quantity-studs1" value="1" min="1">
+            <button onclick="addToWishlist('Bundi Design Chain', 1000)">Add to Wishlist</button>
+            <button>Add to Cart</button>
+            <p>Price: ₹1000</p>
+        </div>
+        <div class="jewelry-design-chains">
+            <img src="https://tse4.mm.bing.net/th?id=OIP.WXpMG09V3TRE8vk7bPBwDAHaFj&pid=Api&P=0&h=180" alt="chain-Design">
+            <h2>PLAIN</h2>
+            <label for="chain-quantity-studs2">Quantity:</label>
+            <input type="number" id="chain-quantity-studs2" name="chain-quantity-studs2" value="1" min="1">
+            <button onclick="addToWishlist('Plain Chain', 1000)">Add to Wishlist</button>
+            <button>Add to Cart</button>
+            <p>Price: ₹1000</p>
+        </div>
+        
+        <div class="jewelry-design-chains">
+            <img src="https://tse1.mm.bing.net/th?id=OIP.EEsVlwJ6qZn583Jwmkc9cgHaHa&pid=Api&P=0&h=180" alt="chain-Design">
+            <h2>MULTI LAYER</h2>
+            <label for="chain-quantity-studs3">Quantity:</label>
+            <input type="number" id="chain-quantity-studs3" name="chain-quantity-studs3" value="1" min="1">
+            <button onclick="addToWishlist('Multi Layer Chain', 1000)">Add to Wishlist</button>
+            <button>Add to Cart</button>
+            <p>Price: ₹1000</p>
+        </div>
+    </div>
+    <script>
+        function addToWishlist(name, price) {
+            // Redirect to wishlist page with product details
+            window.location.href = 'wishlist.html?name=' + encodeURIComponent(name) + '&price=' + encodeURIComponent(price);
+        }
+
+        function addToCart(name, price) {
+            // Placeholder function for adding to cart
+            alert('Added ' + name + ' to Cart');
+        }
+    </script>
+
+    
+</body>
+</html>

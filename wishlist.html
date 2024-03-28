@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wishlist</title>
+    <link rel="stylesheet" href="wishlist.css">
+</head>
+<body>
+    <h2>Wishlist</h2>
+    <div id="wishlist-details"></div>
+    <button onclick="calculateTotalPrice()">Calculate Total Price</button>
+    <p id="total-price"></p>
+    <button onclick="goToCart()">Go to Cart</button>
+
+    <script>
+        window.onload = function() {
+            addToWishlistFromURL();
+            displayWishlist();
+        };
+
+        function addToWishlistFromURL() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const productName = urlParams.get('name');
+            const productPrice = urlParams.get('price');
+
+            // Add product to wishlist
+            addToWishlist(productName, productPrice);
+        }
+
+        function addToWishlist(name, price) {
+            let wishlistItems = localStorage.getItem('wishlist');
+            wishlistItems = wishlistItems ? JSON.parse(wishlistItems) : [];
+
+            // Add new product to wishlist
+            wishlistItems.push({ name: name, price: price });
+            localStorage.setItem('wishlist', JSON.stringify(wishlistItems));
+            displayWishlist(); // Update displayed wishlist after adding new product
+        }
+
+        function removeProduct(index) {
+            let wishlistItems = localStorage.getItem('wishlist');
+            wishlistItems = wishlistItems ? JSON.parse(wishlistItems) : [];
+
+            // Remove product at specified index
+            wishlistItems.splice(index, 1);
+            localStorage.setItem('wishlist', JSON.stringify(wishlistItems));
+            displayWishlist(); // Update displayed wishlist after removing product
+        }
+
+        function displayWishlist() {
+            const wishlistDetails = document.getElementById('wishlist-details');
+
+            // Get existing wishlist items from local storage
+            let wishlistItems = localStorage.getItem('wishlist');
+            wishlistItems = wishlistItems ? JSON.parse(wishlistItems) : [];
+
+            // Display wishlist items
+            wishlistDetails.innerHTML = '';
+            wishlistItems.forEach((item, index) => {
+                wishlistDetails.innerHTML += `
+                    <div>
+                        <button onclick="removeProduct(${index})">Remove</button>
+                        <p>Product: ${item.name}</p>
+                        <p>Price: ₹${item.price}</p>
+                    </div>
+                    <hr>
+                `;
+            });
+        }
+
+        function calculateTotalPrice() {
+            let wishlistItems = localStorage.getItem('wishlist');
+            wishlistItems = wishlistItems ? JSON.parse(wishlistItems) : [];
+
+            let totalPrice = 0;
+            wishlistItems.forEach(item => {
+                totalPrice += parseFloat(item.price);
+            });
+
+            const totalPriceElement = document.getElementById('total-price');
+            totalPriceElement.innerText = `Total Price: ₹${totalPrice.toFixed(2)}`;
+        }
+
+        function goToCart() {
+            window.location.href = 'order.html'; // Redirect to cart page
+        }
+    </script>
+</body>
+</html>

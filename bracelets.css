@@ -1,0 +1,50 @@
+body {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+        background-color: black;
+        color: white;
+    }
+    
+    .jewelry-design-container-bracelets {
+        display: flex;
+        justify-content: space-around;
+    }
+    
+    .jewelry-design-bracelets {
+        width: 250px;
+        text-align: center;
+        border: 2px solid white;
+        padding: 10px;
+        margin: 10px;
+        box-sizing: border-box;
+    }
+    
+    .jewelry-design-bracelets img {
+        width: 100%;
+        height: auto;
+    }
+    
+    .jewelry-design-bracelets h2 {
+        margin-top: 10px;
+    }
+    
+    .jewelry-design-bracelets p {
+        margin: 5px 0;
+    }
+    
+    button {
+        background-color: goldenrod;
+        border: none;
+        color: black;
+        padding: 5px 10px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 12px;
+        font-weight: bold;
+        margin: 4px 2px;
+        cursor: pointer;
+        border-radius: 5px;
+    }
+    

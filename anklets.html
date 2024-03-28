@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jewelry Designs</title>
+    <link rel="stylesheet" href="anklets.css">
+</head>
+<body>
+    <div class="jewelry-design-container-bracelets">
+        <div class="jewelry-design-bracelets">
+            <img src="https://tse1.mm.bing.net/th?id=OIP.ylYXOOylYwvh-GcS1gi58gHaHa&pid=Api&P=0&h=180" alt="bracelet-Design">
+            <h2>PLAIN</h2>
+            <label for="bracelet-quantity-studs">Quantity:</label>
+            <input type="number" id="bracelet-quantity-studs" name="bracelet-quantity-studs" value="1" min="1">
+            <button onclick="addToWishlist('Plain Bracelet', 1000)">Add to Wishlist</button>
+            <button onclick="addToCart('Plain Bracelet', 1000)">Add to Cart</button>
+            <p>Price: ₹1000</p>
+        </div>
+        
+        <!-- Other product entries go here -->
+    </div>
+
+    <script>
+        function addToWishlist(name, price) {
+            // Redirect to wishlist page with product details
+            window.location.href = 'wishlist.html?name=' + encodeURIComponent(name) + '&price=' + encodeURIComponent(price);
+        }
+
+        function addToCart(name, price) {
+            // Placeholder function for adding to cart
+            alert('Added ' + name + ' to Cart');
+        }
+    </script>
+</body>
+</html>
